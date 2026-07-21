@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#18191b" />
+    <meta name="description" content="薛之谦歌曲淘汰赛 - 选出你的唯一冠军" />
+    <title>薛之谦 · 歌曲淘汰赛</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="paper-noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到首页">
+        <span class="brand-mark">J</span>
+        <span>薛之谦</span>
+      </a>
+      <div class="header-actions">
+        <button class="text-button" id="open-track-list" type="button">曲目册</button>
+        <button class="sound-button" id="sound-toggle" type="button" aria-pressed="false" aria-label="开启环境音效">
+          <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>声场</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="intro-screen" id="intro-screen" aria-labelledby="page-title">
+        <p class="eyebrow">JOKER XUE / SONG ARCHIVE</p>
+        <h1 id="page-title">留下一首<br /><em>你最舍不得的歌</em></h1>
+        <p class="intro-copy">128 首候选曲目，7 轮选择。没有标准答案，只有你的最终保留。</p>
+        <div class="intro-meta">
+          <span>LOCAL EDITION</span>
+          <span>128 TRACKS</span>
+          <span>2026</span>
+        </div>
+        <button class="start-button" id="start-button" type="button"><span>开始选择</span><b>01</b></button>
+        <div class="hero-line" aria-hidden="true"><span></span><i></i><span></span></div>
+      </section>
+
+      <section class="game-screen is-hidden" id="game-screen" aria-live="polite">
+        <div class="round-header">
+          <div>
+            <p class="eyebrow" id="round-kicker">ROUND 01 / 128 进 64</p>
+            <h2 id="round-title">第一轮</h2>
+          </div>
+          <div class="round-count"><span id="match-number">01</span><i>/</i><span id="match-total">64</span></div>
+        </div>
+
+        <div class="progress-wrap" aria-label="比赛进度"><div class="progress-bar" id="progress-bar"></div></div>
+
+        <div class="duel" id="duel">
+          <button class="song-choice song-left" id="choice-left" type="button">
+            <span class="choice-index" id="left-index">001</span>
+            <span class="choice-word">留住</span>
+            <strong id="left-song">演员</strong>
+            <span class="choice-rule"></span>
+          </button>
+          <div class="versus" aria-hidden="true"><span>V</span><i>S</i></div>
+          <button class="song-choice song-right" id="choice-right" type="button">
+            <span class="choice-index" id="right-index">002</span>
+            <span class="choice-word">留住</span>
+            <strong id="right-song">绅士</strong>
+            <span class="choice-rule"></span>
+          </button>
+        </div>
+
+        <div class="game-footer">
+          <p id="selection-note">凭直觉选择，答案会被记录。</p>
+          <button class="undo-button" id="undo-button" type="button" disabled>撤回上一票</button>
+        </div>
+      </section>
+
+      <section class="result-screen is-hidden" id="result-screen" aria-labelledby="result-title">
+        <p class="eyebrow">YOUR FINAL KEEP</p>
+        <p class="result-label">你的冠军曲目</p>
+        <h2 id="result-title">演员</h2>
+        <p class="result-copy">从 128 首歌里走到最后的一首。</p>
+        <div class="winner-seal" aria-hidden="true"><span>01</span><i>KEEP</i><b>JX</b></div>
+        <div class="result-actions">
+          <button class="primary-action" id="save-poster" type="button">保存晋级长图</button>
+          <button class="text-button" id="restart-button" type="button">重新选择</button>
+        </div>
+        <p class="save-status" id="save-status" role="status"></p>
+      </section>
+    </main>
+
+    <aside class="track-drawer" id="track-drawer" aria-hidden="true" aria-labelledby="track-drawer-title">
+      <div class="drawer-panel">
+        <div class="drawer-top">
+          <div><p class="eyebrow">SOURCE LIST</p><h2 id="track-drawer-title">全部候选曲目</h2></div>
+          <button class="close-button" id="close-track-list" type="button" aria-label="关闭曲目册">×</button>
+        </div>
+        <p class="drawer-copy">名单按你提供的截图顺序排列。</p>
+        <ol class="track-list" id="track-list"></ol>
+      </div>
+    </aside>
+
+    <canvas id="poster-canvas" aria-hidden="true"></canvas>
+    <script src="app.js"></script>
+  </body>
+</html>
